@@ -1,22 +1,22 @@
 "Optimizating the customer orders track"
 
-def customer_order_report(order_info):
-    elements = line.split("|")
-    melon_cost = 1.00
-    total_melon_bought = float(elements[2])
-    total_expected = total_melon_bought * melon_cost
-    #print(total_expected)
-    total_customer_paid = float(elements[3])
+def customer_order_report(order_info): #Defining function that takes one parameter
+    elements = line.split("|") # spliting the customer order inf at the separator |
+    melon_cost = 1.00 # defining the cost of each melon
+    total_melon_bought = float(elements[2]) #getting the amount melon each customer bought and assiging it to the float type
+    total_expected = total_melon_bought * melon_cost # calculating the expected price client should pay
+    #print(total_expected) # testing the program
+    total_customer_paid = float(elements[3]) #getting the value that customer had paid 
 
-    if total_customer_paid != total_expected:
-        print(f"{elements[1]} paid ${total_customer_paid},",
-        f"expected ${total_expected:.2f}")
+    if total_customer_paid != total_expected: #creating the logic to check which customer didnt had done the correct payment
+        print(f"{elements[1]} paid ${total_customer_paid},", 
+        f"expected ${total_expected:.2f}") # printing a message for the clientes that didnt do the expected payment
         
 
-with open("customer-orders.txt") as customer_orders:
-    for line in customer_orders.readlines():
-        # print(line)
-        customer_order_report(line)
+with open("customer-orders.txt") as customer_orders: # reading the text file and saving the content to the customer_orders variable
+    for line in customer_orders.readlines(): #iterating over each line of file
+        # print(line) #testing
+        customer_order_report(line) #calling the function
         
         
         
